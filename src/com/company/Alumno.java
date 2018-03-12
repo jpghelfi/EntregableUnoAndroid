@@ -31,6 +31,6 @@ public class Alumno {
 
         Alumno unAlumno = (Alumno) obj;
 
-        return unAlumno.getCodigoAlumno() == this.codigoAlumno;
+        return unAlumno.getCodigoAlumno().equals(this.codigoAlumno);
     }
 }

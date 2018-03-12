@@ -10,10 +10,10 @@ public class Profesor {
 
     protected Integer codigoDeProfesor;
 
-    public Profesor(String nombre, String apellido, Integer antiguedad, Integer codigoDeProfesor) {
+    public Profesor(String nombre, String apellido, Integer codigoDeProfesor) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.antiguedad = antiguedad;
+        this.antiguedad = 0;
         this.codigoDeProfesor = codigoDeProfesor;
     }
 
@@ -33,11 +33,5 @@ public class Profesor {
         return codigoDeProfesor;
     }
 
-    @Override
-    public boolean equals(Object obj) {
 
-        Profesor unProfesor = (Profesor) obj;
-
-        return unProfesor.getCodigoDeProfesor() == this.codigoDeProfesor;
-    }
 }
