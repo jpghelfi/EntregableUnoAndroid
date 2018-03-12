@@ -14,5 +14,23 @@ public class Alumno {
         this.codigoAlumno = codigoAlumno;
     }
 
-    
+    public Integer getCodigoAlumno() {
+        return codigoAlumno;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        Alumno unAlumno = (Alumno) obj;
+
+        return unAlumno.getCodigoAlumno() == this.codigoAlumno;
+    }
 }
