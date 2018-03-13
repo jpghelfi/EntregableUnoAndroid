@@ -70,6 +70,7 @@ public class DigitalHouseManager {
 
             if (curso.agregarUnAlumno(alumno)){
                 Inscripcion inscripcion = new Inscripcion(alumno,curso);
+                alumno.agregarCurso(curso);
                 System.out.println("Inscripcion relizada con exito de  Alumno " + alumno.getNombre() + " en curso " + curso.getNombre());
 
             }else{
@@ -129,6 +130,14 @@ public class DigitalHouseManager {
 
         }
 
+    }
+
+    public void imprimirListadoDeCursosDeListadoDeAlumnos(){
+        for (Alumno alumno: this.listaAlumnos) {
+
+            alumno.imprimirListadoCursos();
+
+        }
     }
 
 

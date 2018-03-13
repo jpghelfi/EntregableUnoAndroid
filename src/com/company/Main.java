@@ -39,6 +39,8 @@ public class Main {
         manager.inscribirAlumno(9998,20002);
         manager.inscribirAlumno(6556,20002);
 
+        manager.imprimirListadoDeCursosDeListadoDeAlumnos();
+
 
 
 
