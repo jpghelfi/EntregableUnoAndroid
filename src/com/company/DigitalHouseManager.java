@@ -21,22 +21,6 @@ public class DigitalHouseManager {
         this.listaInscripciones = new ArrayList<Inscripcion>();
     }
 
-    public void addAlumno(Alumno unAlumno){
-        this.listaAlumnos.add(unAlumno);
-    }
-
-    public void addProfesor(Profesor unProfesor){
-        this.listaProfesores.add(unProfesor);
-    }
-
-    public void aaddCursoddAlumno(Curso unCurso){
-        this.listaCursos.add(unCurso);
-    }
-
-    public void addInscripcion(Inscripcion unaInscripcion){
-        this.listaInscripciones.add(unaInscripcion);
-    }
-
     public void altaCurso(String nombre, Integer codigoCurso, Integer cupoMaximoDealumnos){
 
         this.listaCursos.add(new Curso(nombre, codigoCurso, cupoMaximoDealumnos));
@@ -89,17 +73,17 @@ public class DigitalHouseManager {
                 System.out.println("Inscripcion relizada con exito de  Alumno " + alumno.getNombre() + " en curso " + curso.getNombre());
 
             }else{
-                System.out.println("NO HAY CUPO: No se pudo inscribir al Alumno" + alumno.getNombre() + " en el curso " + curso.getNombre());
+                System.out.println("NO HAY CUPO: No se pudo inscribir al Alumno " + alumno.getNombre() + " en el curso " + curso.getNombre());
             }
 
         }catch (Exception e){
-            System.out.println("Error");
+            System.out.println("Error: no se pudo inscribir al alumno " + codigoAlumno + " en el curso " + codigoCurso);
         }
     }
 
     private Curso buscarCurso(Integer codigoCurso){
         for (Curso curso: this.listaCursos) {
-            if (curso.getCodigoDeCurso() == codigoCurso){
+            if (curso.equals(codigoCurso)){
                 return curso;
             }
         }
@@ -141,7 +125,7 @@ public class DigitalHouseManager {
             curso.setProfesorAdjunto(this.buscarProfesorAdjunto(codigoProfesorAdjunto));
 
         }catch (Exception e){
-            System.out.println("No se pudo asigar los profesores al curso " + curso.getNombre() );
+            System.out.println("No se pudo asigar los profesores al curso " + codigoCurso );
 
         }
 

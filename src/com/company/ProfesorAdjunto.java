@@ -1,6 +1,6 @@
 package com.company;
 
-import com.sun.corba.se.impl.javax.rmi.PortableRemoteObject;
+
 
 public class ProfesorAdjunto extends Profesor{
 

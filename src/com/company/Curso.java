@@ -42,12 +42,9 @@ public class Curso {
         return codigoDeCurso;
     }
 
-    @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Integer codigo) {
 
-        Curso unCurso = (Curso) obj;
-
-        return unCurso.getCodigoDeCurso() == this.codigoDeCurso;
+        return codigo.equals(this.codigoDeCurso);
     }
 
     public Boolean agregarUnAlumno(Alumno unAlumno){
@@ -61,7 +58,7 @@ public class Curso {
     }
 
     public Boolean hayCupo(){
-        return this.cupoMaximo < this.listaDeAlumnos.size();
+        return this.cupoMaximo > this.listaDeAlumnos.size();
     }
 
     public void eliminarAlumno(Alumno unAlumno){
