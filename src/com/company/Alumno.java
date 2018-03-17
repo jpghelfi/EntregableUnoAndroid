@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Alumno {
+public class Alumno implements Estudioso {
 
     protected String nombre;
 
@@ -49,5 +49,10 @@ public class Alumno {
         Alumno unAlumno = (Alumno) obj;
 
         return unAlumno.getCodigoAlumno().equals(this.codigoAlumno);
+    }
+
+    @Override
+    public Boolean esEstudioso() {
+        return true;
     }
 }

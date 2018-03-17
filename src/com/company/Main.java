@@ -6,7 +6,7 @@ public class Main {
 //      7. Inscribir a dos alumnos en el curso de Android.
 //      8. Inscribir a tres alumnos en el curso de Android.
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DHException, OtherException {
 
 
         DigitalHouseManager manager = new DigitalHouseManager();
@@ -44,6 +44,19 @@ public class Main {
 //        manager.inscribirAlumno(2,20002);
 
         manager.imprimirListadoDeCursosDeListadoDeAlumnos();
+
+        Alumno unAlumno = new Alumno("Juancno","Ghelfi",9);
+
+        try {
+            DigitalException.inscripcionDH(unAlumno);
+
+        }catch (DHException e){
+            System.out.println("Venir al colearning");
+        }catch (OtherException e){
+            System.out.println("Hablar con alumnos");
+
+        }
+
 
 
 
