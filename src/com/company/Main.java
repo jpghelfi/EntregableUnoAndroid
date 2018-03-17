@@ -9,35 +9,39 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Alumno alumnoUno = new Alumno("Hugo","Moyano",6556);
-        Alumno alumnoDos = new Alumno("Caballo", "Suarez", 9998);
-        Alumno alumnoTres = new Alumno("Hugo", "Barrionuevo", 234);
-
         DigitalHouseManager manager = new DigitalHouseManager();
 
-        manager.altaAlumno("Hugo","Moyano",6556);
-        manager.altaAlumno("Caballo", "Suarez", 9998);
-        manager.altaAlumno("Hugo", "Barrionuevo", 234);
+//        manager.altaAlumno("Huguito","Moyano",1);
+//        manager.altaAlumno("Huguito","Moyano",1);
+////        manager.altaAlumno("Huguito","Moyano",1);
+//        manager.altaAlumno("Huguito","Moyano",1);
+//        manager.altaAlumno("Caballo", "Suarez", 2);
+//        manager.altaAlumno("Hugo", "Barrionuevo", 3);
 
-        manager.altaProfesorTitular("Pepe","Suarez",3, "Economia");
-        manager.altaProfesorTitular("Lalo","Lorenzetti",4, "Historia");
+        manager.altaProfesorTitular("Pepe","Venegas",1, "Economia");
+//        manager.altaProfesorTitular("Pepe","Venegas",1, "Economia");
+//        manager.altaProfesorTitular("Lalo","Lorenzetti",2, "Historia");
+//
+        manager.altaProfesorAdjunto("Juan Pablo", "Ghelfi",3,4);
+//        manager.altaProfesorAdjunto("Juan Pablo", "Ghelfi",3,4);
+//        manager.altaProfesorAdjunto("Fernando", "Alonso",4,5);
+//
+//
+        manager.altaCurso("Full Stack",20001, 5);
+//        manager.altaCurso("Full Stack",20001, 5);
+//        manager.altaCurso("Android",20002, 2);
+//
+        manager.asignarProfesores(20001,1, 3);
+        manager.asignarProfesores(20001,1, 3);
+//        manager.asignarProfesores(20002,3, 4);
+//
+        manager.inscribirAlumno(1,20001);
+//        manager.inscribirAlumno(2,20001);
+//        manager.inscribirAlumno(2,20001);
 
-        manager.altaProfesorAdjunto("Juan", "Ghelfi",1,4);
-        manager.altaProfesorAdjunto("Pablo", "Perez",2,5);
-
-
-        manager.altaCurso("Full Stack",20001, 3);
-        manager.altaCurso("Android",20002, 2);
-
-        manager.asignarProfesores(20001,3, 1);
-        manager.asignarProfesores(20002,4, 2);
-
-        manager.inscribirAlumno(6556,20001);
-        manager.inscribirAlumno(9998,20001);
-
-        manager.inscribirAlumno(234,20002);
-        manager.inscribirAlumno(9998,20002);
-        manager.inscribirAlumno(6556,20002);
+//        manager.inscribirAlumno(3,20002);
+//        manager.inscribirAlumno(1,20002);
+//        manager.inscribirAlumno(2,20002);
 
         manager.imprimirListadoDeCursosDeListadoDeAlumnos();
 

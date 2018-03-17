@@ -23,7 +23,21 @@ public class DigitalHouseManager {
 
     public void altaCurso(String nombre, Integer codigoCurso, Integer cupoMaximoDealumnos){
 
-        this.listaCursos.add(new Curso(nombre, codigoCurso, cupoMaximoDealumnos));
+        if(!this.isCurso(codigoCurso)){
+            this.listaCursos.add(new Curso(nombre, codigoCurso, cupoMaximoDealumnos));
+            this.altaCorrecta("Curso", nombre);
+        }else{
+            this.altaIncorrecta("Curso", nombre);
+
+        }
+    }
+
+    private void altaCorrecta(String tipo, String nombre){
+        System.out.println(tipo + " " + nombre + " dado de alta correctamente");
+    }
+
+    private void altaIncorrecta(String tipo, String nombre){
+        System.out.println(tipo + " " + nombre + " no se pudo de alta");
     }
 
     public void bajaCurso(Integer codigoCurso){
@@ -38,12 +52,27 @@ public class DigitalHouseManager {
     }
 
     public void altaProfesorAdjunto(String nombre, String apellido, Integer codigoProfesor, Integer cantidadDeHoras){
-        this.listaProfesores.add(new ProfesorAdjunto(nombre,apellido,codigoProfesor,cantidadDeHoras));
+
+        if(!this.isProfesorAdjunto(codigoProfesor)){
+            this.listaProfesores.add(new ProfesorAdjunto(nombre,apellido,codigoProfesor,cantidadDeHoras));
+            this.altaCorrecta("Profesor Adjunto", apellido);
+
+        }else{
+            this.altaIncorrecta("Profesor Adjunto", apellido);
+
+        }
+
     }
 
     public void altaProfesorTitular(String nombre, String apellido, Integer codigoProfesor, String especialidad){
 
-        this.listaProfesores.add(new ProfesorTitular(nombre, apellido, codigoProfesor, especialidad));
+        if(!this.isProfesorTitular(codigoProfesor)){
+            this.listaProfesores.add(new ProfesorTitular(nombre, apellido, codigoProfesor, especialidad));
+            this.altaCorrecta("Profesor", apellido);
+        }else{
+            this.altaIncorrecta("Profesor", apellido);
+
+        }
     }
 
     public void bajaProfesor(Integer codigoProfesor){
@@ -59,7 +88,12 @@ public class DigitalHouseManager {
 
     public void altaAlumno(String nombre, String apellido, Integer codigoAlumno){
 
-        this.listaAlumnos.add(new Alumno(nombre, apellido, codigoAlumno));
+        if (!this.isAlumno(codigoAlumno)){
+            this.listaAlumnos.add(new Alumno(nombre, apellido, codigoAlumno));
+            this.altaCorrecta("Alumno", apellido);
+        }else{
+            this.altaIncorrecta("Alumno", apellido);
+        }
     }
 
     public void inscribirAlumno(Integer codigoAlumno, Integer codigoCurso){
@@ -74,7 +108,7 @@ public class DigitalHouseManager {
                 System.out.println("Inscripcion relizada con exito de  Alumno " + alumno.getNombre() + " en curso " + curso.getNombre());
 
             }else{
-                System.out.println("NO HAY CUPO: No se pudo inscribir al Alumno " + alumno.getNombre() + " en el curso " + curso.getNombre());
+                System.out.println("No se pudo inscribir al Alumno " + alumno.getNombre() + " en el curso " + curso.getNombre());
             }
 
         }catch (Exception e){
@@ -91,6 +125,15 @@ public class DigitalHouseManager {
         return null;
     }
 
+    private Boolean isCurso(Integer codigoCurso){
+        for (Curso curso: this.listaCursos) {
+            if (curso.equals(codigoCurso)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     private Alumno buscarAlumno(Integer codigoAlumno){
         for (Alumno alumno: this.listaAlumnos) {
             if (alumno.getCodigoAlumno().equals(codigoAlumno)){
@@ -98,6 +141,15 @@ public class DigitalHouseManager {
             }
         }
         return null;
+    }
+
+    private Boolean isAlumno(Integer codigoAlumno){
+        for (Alumno alumno: this.listaAlumnos) {
+            if (alumno.getCodigoAlumno().equals(codigoAlumno)){
+                return true;
+            }
+        }
+        return false;
     }
 
     private ProfesorTitular buscarProfesorTitular(Integer codigoProfesor){
@@ -108,6 +160,14 @@ public class DigitalHouseManager {
         return null;
     }
 
+    private Boolean isProfesorTitular(Integer codigoProfesor){
+        for (Profesor profesorTitular: this.listaProfesores)
+            if (profesorTitular.getCodigoDeProfesor().equals(codigoProfesor)) {
+                return true;
+            }
+        return false;
+    }
+
     private ProfesorAdjunto buscarProfesorAdjunto(Integer codigoProfesor){
         for (Profesor profesorAdjunto: this.listaProfesores)
             if (profesorAdjunto.equals(codigoProfesor)) {
@@ -115,6 +175,15 @@ public class DigitalHouseManager {
             }
         return null;
     }
+
+    private Boolean isProfesorAdjunto(Integer codigoProfesor){
+        for (Profesor profesorAdjunto: this.listaProfesores)
+            if (profesorAdjunto.getCodigoDeProfesor().equals(codigoProfesor)) {
+                return true;
+            }
+        return false;
+    }
+
 
     public void asignarProfesores(Integer codigoCurso, Integer codigoProfesorTitular, Integer codigoProfesorAdjunto){
 
@@ -126,7 +195,7 @@ public class DigitalHouseManager {
             curso.setProfesorAdjunto(this.buscarProfesorAdjunto(codigoProfesorAdjunto));
 
         }catch (Exception e){
-            System.out.println("No se pudo asigar los profesores al curso " + codigoCurso );
+            System.out.println("No se pudo asigar el profesor al curso " + codigoCurso );
 
         }
 

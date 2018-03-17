@@ -13,8 +13,4 @@ public class ProfesorTitular extends Profesor {
         return especialidad;
     }
 
-    public boolean equals(Inscripcion codigo) {
-
-        return codigo.equals(this.codigoDeProfesor);
-    }
 }
